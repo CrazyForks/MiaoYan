@@ -38,6 +38,16 @@ final class PrefsWindowController: NSWindowController, NSWindowDelegate {
         self.init(window: window)
 
         setupUIComponents()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateAlwaysOnTopState),
+            name: .alwaysOnTopChanged,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .alwaysOnTopChanged, object: nil)
     }
 
     override func windowDidLoad() {
@@ -169,10 +179,15 @@ final class PrefsWindowController: NSWindowController, NSWindowDelegate {
         }
 
         prepareWindowForDisplayIfNeeded()
+        updateAlwaysOnTopState()
 
         showWindow(self)
         window?.makeKeyAndOrderFront(self)
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    @objc private func updateAlwaysOnTopState() {
+        window?.level = UserDefaultsManagement.alwaysOnTop ? .floating : .normal
     }
 
     func selectCategory(_ category: PreferencesCategory) {

@@ -347,7 +347,7 @@ class HtmlManager {
         return "\(url)\(separator)x-oss-process=image/auto-orient,1/resize,w_1600/format,webp"
     }
 
-    // Transparent 1x1 GIF placeholder — used by Swift-side lazy image injection
+    // Transparent 1x1 GIF placeholder used by Swift-side lazy image injection
     // Matches the placeholder in common.js so JS can pick up data-src and load the real image
     static let lazyPlaceholder = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
@@ -449,7 +449,7 @@ class HtmlManager {
             }
         }
 
-        // Process <video src> and <source src> — rewrite local paths to file://
+        // Process <video src> and <source src>, rewriting local paths to file://
         // CDN (http/https) video src: force preload="none" to prevent WebKit from
         // blocking preview while downloading a remote video
         if let videoRegex = videoSrcRegex {
@@ -572,14 +572,16 @@ class HtmlManager {
 
             if isAbsolutePath(cleanPath) {
                 if FileManager.default.fileExists(atPath: cleanPath) {
-                    replacements.append((match.range, "![\(alt)](file://\(cleanPath))"))
+                    let imageURL = URL(fileURLWithPath: cleanPath)
+                    replacements.append((match.range, "![\(alt)](\(imageURL.absoluteString))"))
                 }
                 continue
             }
 
-            let absolutePath = imagesStorage.appendingPathComponent(cleanPath).path
-            if FileManager.default.fileExists(atPath: absolutePath) {
-                replacements.append((match.range, "![\(alt)](file://\(absolutePath))"))
+            let relativePath = cleanPath.hasPrefix("/") ? String(cleanPath.dropFirst()) : cleanPath
+            let imageURL = imagesStorage.appendingPathComponent(relativePath)
+            if FileManager.default.fileExists(atPath: imageURL.path) {
+                replacements.append((match.range, "![\(alt)](\(imageURL.absoluteString))"))
             }
         }
 
