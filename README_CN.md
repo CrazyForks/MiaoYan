@@ -83,6 +83,9 @@ miao update             # 更新 CLI
 - [介绍妙言](Resources/Initial/介绍妙言.md) - 完整使用指南,包含快捷键等
 - [Markdown 语法指南](Resources/Initial/妙言%20Markdown%20语法指南.md) - 完整语法演示,数学公式、图表等
 - [PPT 演示模式](Resources/Initial/妙言%20PPT.md) - 使用 `---` 分隔幻灯片的演示指南
+- [妙言 Agent Skill](skills/miaoyan) - 让 Agent 掌握妙言语法、附件、PPT 与 CLI 使用方式
+
+运行 `npx skills add tw93/MiaoYan/skills/miaoyan -g` 安装官方 Skill。
 
 ## 支持
 
