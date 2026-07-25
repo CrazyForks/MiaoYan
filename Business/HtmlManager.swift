@@ -98,23 +98,32 @@ class HtmlManager {
                     margin-block-start: 0 !important;
                     padding-top: 0 !important;
                 }
-                #export-generated-title {
-                    font-family: "New York", "Songti SC", "STSong", serif !important;
-                    font-size: 30px !important;
-                    line-height: 1.22 !important;
+                /* Headings inherit the note's own --text-font, same as the live preview.
+                   An earlier serif override here ("New York", "Songti SC", serif) resolved
+                   to STSongti-SC-Bold while the body stayed on the user's preview font, so
+                   every export shipped two unrelated typefaces glued together. Only the
+                   print-specific bits (ink color, pagination, tighter leading) stay.
+
+                   The stroke is the heading weight. TsangerJinKai ships a single weight
+                   (W04), so font-weight: bold only buys WebKit's synthetic bold, which on a
+                   kai-flavoured face still reads lighter than the real Songti Bold headings
+                   used to. Measured ink relative to body text: regular 100%, synthetic bold
+                   124%, + this stroke 130%. font-weight: 900 renders identical to bold and
+                   the family's heavier W05 cut is *lighter* than synthetic bold, so neither
+                   is a way out. Keep the stroke in em so h4-h6 do not fill their counters. */
+                #export-generated-title,
+                h1, h2, h3, h4, h5, h6 {
                     color: var(--pdf-ink) !important;
-                    letter-spacing: 0 !important;
-                    font-weight: 650 !important;
+                    page-break-after: avoid;
+                    line-height: 1.4 !important;
+                    font-weight: bold !important;
+                    -webkit-text-stroke: 0.026em currentColor !important;
+                }
+                #export-generated-title {
+                    font-size: 2em !important;
                     margin: 0 0 22px 0 !important;
                     padding: 0 0 12px 0 !important;
                     border-bottom: 1px solid var(--pdf-hairline) !important;
-                }
-                h1, h2, h3, h4, h5, h6 {
-                    font-family: "New York", "Songti SC", "STSong", serif !important;
-                    color: var(--pdf-ink) !important;
-                    page-break-after: avoid;
-                    line-height: 1.28 !important;
-                    letter-spacing: 0 !important;
                 }
                 pre, table, figure, blockquote,
                 .miaoyan-mermaid, .md-diagram-panel {

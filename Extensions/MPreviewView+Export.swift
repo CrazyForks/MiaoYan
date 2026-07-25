@@ -352,11 +352,8 @@ extension MPreviewView {
             return
         }
 
-        PdfExportPreviewController.present(note: note, from: vc) { [weak self, weak vc] in
-            guard let self, let vc else { return }
-            vc.toastPersistent(message: "\(I18n.str("Exporting...")) 0%")
-            self.exportPdfViaPrintOperation(note: note, viewController: vc)
-        }
+        vc.toastPersistent(message: "\(I18n.str("Exporting...")) 0%")
+        exportPdfViaPrintOperation(note: note, viewController: vc)
     }
 
     private func exportPdfViaPrintOperation(note: Note, viewController vc: ViewController) {
