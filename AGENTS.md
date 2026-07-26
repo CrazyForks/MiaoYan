@@ -7,9 +7,7 @@
 > Claude-specific assets:
 > - 全局规则: `~/.claude/CLAUDE.md`
 > - Swift 通用规则: `~/.claude/rules/swift.md` (项目级补充 `.claude/rules/swift.md`)
-> - 发版 runbook: `.claude/skills/release` (`/release`)
-> - Lint: `.claude/skills/lint`
-> - App Store 流程: `.claude/skills/appstore`
+> - 项目 skills: `.claude/skills/` - `release`, `appstore`, `lint`, `code-review`, `github-ops`
 
 ## Project
 
@@ -38,6 +36,7 @@ MiaoYan is a lightweight Markdown editor built with Swift. The main app is macOS
 - `Package.swift` - Swift package dependency declarations and supported platforms.
 - `scripts/` - local build, App Store, release, and project maintenance scripts.
 - `scripts/release-ci/` - release note rendering, appcast, notarization, and package helpers.
+- `skills/miaoyan/` - published Agent Skill (tracked) describing MiaoYan's Markdown, PPT, and `miao` CLI surfaces to outside agents; it restates product syntax, so it drifts when those surfaces change.
 - `.github/RELEASE_NOTES.md` - public release note source for GitHub release and appcast body generation.
 - `.github/workflows/` - holds `ci.yml` only; release builds are not driven by a tracked release workflow.
 
@@ -135,7 +134,6 @@ string is the only breadcrumb the maintainer has when triaging.
 
 ## Working Rules
 
-- Follow existing Swift and AppKit patterns.
 - Keep UI updates on the main thread.
 - Avoid force unwraps unless the invariant is obvious and local.
 - Prefer `AppEnvironment.current.<service>` over direct singleton access in
@@ -144,7 +142,7 @@ string is the only breadcrumb the maintainer has when triaging.
   to a merge gate. Existing call sites are grandfathered.
 - Keep file writes scoped to user documents or app-controlled locations.
 - Do not add network calls, shell execution, or broad file access without clear user need.
-- Keep AppKit patterns in the macOS app and SwiftUI patterns in `MiaoYanMobile/`; do not mix frameworks across targets without a clear task reason.
+- Keep the macOS editor core, preview pipeline, and existing storyboard scenes on AppKit. A new self-contained panel may host SwiftUI through `NSHostingView`; that is not licence to push SwiftUI into `EditTextView` / `MPreviewView` / `ViewController`. `MiaoYanMobile/` is SwiftUI throughout, and UI layers are not shared across the two targets.
 - Preserve recoverability for delete flows. Notes and attachments should move through the app Trash or system Trash path that matches the current context, not disappear through direct deletion.
 - Treat iCloud sync and symlinked directories as file-system-sensitive surfaces; resolve paths deliberately and avoid loops or duplicate indexing.
 
