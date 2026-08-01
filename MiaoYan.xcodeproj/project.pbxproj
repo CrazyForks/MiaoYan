@@ -95,6 +95,7 @@
 		4C5E0C6B57054F9C9A0C7A9C /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B671C2C7154C33A6BDC59A /* CloudSyncManager.swift */; };
 		4D5CD5E8152C42BE97383DAA /* app.icon in Resources */ = {isa = PBXBuildFile; fileRef = 27EAA5992EA8C76500D13871 /* app.icon */; };
 		4E240503121F054AEB3DDDCC /* MiaoYanTests/ImageLinkParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D372825902F0E2A6F8CCF40 /* MiaoYanTests/ImageLinkParserTests.swift */; };
+		548A1B2C3D4E5F60718293A4 /* MiaoYanTests/MermaidExportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B1B2C3D4E5F60718293A4 /* MiaoYanTests/MermaidExportTests.swift */; };
 		A4CADB8809D34E1C9C3267F5 /* MiaoYanTests/HtmlManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E4FEFFB4E4C108508945B /* MiaoYanTests/HtmlManagerTests.swift */; };
 		33F1E2FF1B56462C8C96769E /* MiaoYanTests/PrefsWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206592CF7404E1D9AF623FD /* MiaoYanTests/PrefsWindowControllerTests.swift */; };
 		452D621FD0BD8D78F323777C /* MiaoYanTests/GitHubAlertsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D4BC0BCD2C364D59E53FA6 /* MiaoYanTests/GitHubAlertsTests.swift */; };
@@ -324,6 +325,7 @@
 		ED58CF253E8AA0C439EC9C28 /* Helpers/TypographyCleaner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers/TypographyCleaner.swift; sourceTree = SOURCE_ROOT; };
 		0736438569674343BEEB0299 /* Helpers/HtmlToMarkdown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers/HtmlToMarkdown.swift; sourceTree = SOURCE_ROOT; };
 		51058B752985D9BF24D44FEA /* MiaoYanTests/HtmlToMarkdownTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MiaoYanTests/HtmlToMarkdownTests.swift; sourceTree = SOURCE_ROOT; };
+		548B1B2C3D4E5F60718293A4 /* MiaoYanTests/MermaidExportTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MiaoYanTests/MermaidExportTests.swift; sourceTree = SOURCE_ROOT; };
 		0B2BB9795EE5AC72B1423FF8 /* MiaoYanTests/ImportScanTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MiaoYanTests/ImportScanTests.swift; sourceTree = SOURCE_ROOT; };
 		8F7136ED23490CBF004DFA6E /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		8FD4E9A039653D603B5A7868 /* Helpers/Diagnostics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers/Diagnostics.swift; sourceTree = SOURCE_ROOT; };
@@ -508,6 +510,7 @@
 				B22C5159360D47542BF89DB7 /* MiaoYanTests/EditorStorageOwnershipTests.swift */,
 				70CD1D46A31EA0A827EF0C05 /* MiaoYanTests/TypographyCleanerTests.swift */,
 				51058B752985D9BF24D44FEA /* MiaoYanTests/HtmlToMarkdownTests.swift */,
+				548B1B2C3D4E5F60718293A4 /* MiaoYanTests/MermaidExportTests.swift */,
 				0B2BB9795EE5AC72B1423FF8 /* MiaoYanTests/ImportScanTests.swift */,
 				17D270682FE43740B52C6C24 /* MiaoYanTests/Info.plist */,
 			);
@@ -1026,6 +1029,7 @@
 				A11B4048259C36431AF78CA6 /* MiaoYanTests/EditorStorageOwnershipTests.swift in Sources */,
 				242C434908DBCF06A33ADC23 /* MiaoYanTests/TypographyCleanerTests.swift in Sources */,
 				EAAF710A6DC7C6BC33A032EA /* MiaoYanTests/HtmlToMarkdownTests.swift in Sources */,
+				548A1B2C3D4E5F60718293A4 /* MiaoYanTests/MermaidExportTests.swift in Sources */,
 				7AB1664FC5A60FE3EBF3D219 /* MiaoYanTests/ImportScanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

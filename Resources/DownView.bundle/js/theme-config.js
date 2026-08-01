@@ -130,6 +130,7 @@ function getMermaidConfig(isDark = false) {
   };
   return {
     startOnLoad: false,
+    suppressErrorRendering: true,
     theme: isDark ? 'dark' : 'neutral',
     themeVariables: extendedColors,
     darkMode: isDark,

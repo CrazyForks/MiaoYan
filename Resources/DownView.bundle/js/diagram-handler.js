@@ -54,6 +54,8 @@ const DiagramHandler = {
     const mermaidElements = document.querySelectorAll('.language-mermaid');
 
     const renderPromises = Array.from(mermaidElements).map(async (element) => {
+      if (element.dataset.processed === 'true') return;
+
       const content = element.textContent || '';
       if (!content.trim()) return;
 
