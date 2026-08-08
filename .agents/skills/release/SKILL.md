@@ -49,7 +49,7 @@ Stop if:
 
 ## Build And Publish
 
-Use the repository's release scripts for the actual build, packaging, signing, notarization, and appcast update. The tracked workflows currently maintain sponsor assets only; do not assume a `release.yml` workflow exists.
+Use the repository's release scripts for the actual build, packaging, signing, notarization, and appcast update. The only tracked workflow is `ci.yml`; do not assume a `release.yml` workflow exists.
 
 When a local release script is required, confirm these before running it:
 

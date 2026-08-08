@@ -37,6 +37,7 @@ Use Xcode Organizer for upload when that is safer than CLI upload.
 - App Store entitlements are used.
 - The App Store configuration builds cleanly.
 - Screenshots and metadata are ready in App Store Connect when needed.
+- Submission copy ships with the build by default: derive Promotional Text and What's New (en and zh-Hans) from `.github/RELEASE_NOTES.md`, within App Store character limits (Promotional Text 170 chars), and hand them over with the build instead of waiting for the maintainer to ask at the submission form.
 
 ## Safety Rules
 
